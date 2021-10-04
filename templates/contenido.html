@@ -1,0 +1,20 @@
+{% extends './layout.html' %} 
+    {% block title%} Contenido {% endblock%}
+    {% block body %}
+    <center><h1>Productos</h1></center>
+    <center><p>Nuestros productos son:</p></center>
+    <center><h2>Catalogo</h2></center>
+    {% for product in popular_products %}
+        <h3>Nombre del producto: {{product.nombre}}</h3>
+        {% if product.discounted %}
+        <p style="color:red">Descuento: ${{product.cantidad_descuento}}</p>
+        <!--if-->
+        {% else %}
+        <p style="color:green">Precio Original</p>
+        <!--else-->
+        {% endif %}
+        <img src="{{product.img}}">
+        <h4>Talla:{{product.talla}}</h4>
+        <h5>Costo: ${{product.costo}}</h5>
+    {% endfor %}
+    {% endblock %}
